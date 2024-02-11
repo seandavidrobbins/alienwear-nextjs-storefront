@@ -1,0 +1,5 @@
+.footer {
+  & .copyright {
+    @apply text-center text-xs;
+  }
+}

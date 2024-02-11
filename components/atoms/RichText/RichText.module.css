@@ -1,0 +1,92 @@
+.richtext {
+  @apply mb-2 font-rajdhani text-2xl;
+
+  & a {
+    @apply text-black hover:underline;
+  }
+
+  &.center {
+    @apply text-center;
+  }
+
+  &.dropcap {
+    &::first-letter {
+      @apply float-left mr-4 text-8xl font-bold;
+    }
+  }
+
+  /* List Styles */
+  & ul,
+  & ol,
+  &:is(ul, ol) {
+    @apply mt-0 pl-[2.5rem] lg:pl-[4rem] font-rajdhani;
+
+    & li {
+      @apply mb-3 text-3xl lg:text-2xl;
+    }
+
+    & ul,
+    & ol {
+      @apply my-3;
+    }
+  }
+
+  /* Unordered Lists */
+  & ul,
+  &:is(ul) {
+    @apply ml-[1.1rem] list-disc;
+
+    & li {
+      @apply pl-1;
+    }
+
+    /* Second Level */
+    & ul {
+      @apply ml-3;
+
+      list-style: "–"; /* https://bugs.webkit.org/show_bug.cgi?id=204163 */
+
+      & li {
+        @apply pl-4;
+      }
+
+      /* Third Level */
+      & ul {
+        @apply ml-5 list-disc;
+
+        & li {
+          @apply pl-2;
+
+          &::marker {
+            @apply pl-2;
+          }
+        }
+      }
+    }
+  }
+
+  /* Ordered Lists */
+  & ol,
+  &:is(ol) {
+    @apply ml-5 list-decimal;
+
+    & li {
+      @apply pl-2;
+    }
+
+    /* Second Level */
+    & ol {
+      @apply pl-2;
+
+      /* Third Level */
+      & ol {
+        @apply pl-2;
+      }
+    }
+  }
+
+  /* Mark */
+  & mark {
+    @apply bg-transparent font-bold;
+  }
+}

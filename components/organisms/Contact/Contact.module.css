@@ -1,0 +1,18 @@
+.image {
+  animation: 50s ease 0s normal none infinite running zoomin;
+  -webkit-animation: 50s ease 0s normal none infinite running zoomin;
+  -o-animation: 50s ease 0s normal none infinite running zoomin;
+  -moz--o-animation: 50s ease 0s normal none infinite running zoomin;
+}
+
+@keyframes zoomin {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.4, 1.4);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}

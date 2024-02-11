@@ -1,0 +1,7 @@
+.separator {
+  @apply border-b my-8 border-ladgreen;
+
+  &.containerWidth {
+    @apply container w-[100px];
+  }
+}

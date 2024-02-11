@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Write your own custom base styles here if necessary - https://tailwindcss.com/docs/adding-base-styles#using-css */
+  /* stylelint-disable-next-line */
+  #__next {
+    @apply flex h-screen flex-col overflow-x-hidden;
+  }
+
+  html,
+  body {
+    @apply overflow-x-hidden h-screen;
+  }
+
+  a {
+    @apply font-rajdhani text-inherit hover:text-ladgreen;
+  }
+
+  p,
+  ul,
+  ol,
+  li {
+    @apply text-base font-normal lg:text-lg px-4 lg:px-8;
+  }
+
+  nav {
+    & ul {
+      @apply list-none;
+    }
+  }
+
+  h1 {
+    @apply text-6xl font-regular text-white lg:text-7xl 2xl:text-8xl;
+  }
+
+  h2 {
+    @apply font-regular;
+  }
+
+  h3 {
+    @apply font-medium !text-4xl pt-4 px-4 lg:px-8 text-slate-700 font-rajdhani;
+  }
+
+  h4 {
+    @apply text-lg font-medium lg:text-2xl;
+  }
+
+  h5 {
+    @apply text-base font-medium text-black;
+  }
+
+  h6 {
+    @apply text-sm font-bold;
+  }
+}
