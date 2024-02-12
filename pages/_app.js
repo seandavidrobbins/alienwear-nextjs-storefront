@@ -3,12 +3,12 @@ import WordPressProvider from "components/common/WordPressProvider";
 import { useWpApollo } from "lib/wordpress/connector";
 import "styles/globals.css";
 import { ApolloProvider } from "@apollo/client";
-import { SessionProvider as NextAuthProvider } from "next-auth/react";
 import PropTypes from "prop-types";
 import { useState } from "react";
 import "tailwindcss/tailwind.css";
 import Custom500 from "./500";
 import WhatsAppChatbox from "components/atoms/WhatsAppChatbox";
+import { AppProvider } from "components/common/context/AppContext";
 
 /**
  * Render the App component.
@@ -49,7 +49,7 @@ export default function App({ Component, pageProps }) {
   });
 
   return (
-    <NextAuthProvider session={session}>
+    <AppProvider>
       <ApolloProvider client={apolloClient}>
         <WordPressProvider value={wp}>
           {error ? (
@@ -63,7 +63,7 @@ export default function App({ Component, pageProps }) {
           )}
         </WordPressProvider>
       </ApolloProvider>
-    </NextAuthProvider>
+    </AppProvider>
   );
 }
 

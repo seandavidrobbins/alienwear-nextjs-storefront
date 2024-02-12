@@ -22,7 +22,7 @@
   ul,
   ol,
   li {
-    @apply text-base font-normal lg:text-lg px-4 lg:px-8;
+    @apply text-base font-normal lg:text-lg;
   }
 
   nav {
@@ -40,7 +40,7 @@
   }
 
   h3 {
-    @apply font-medium !text-4xl pt-4 px-4 lg:px-8 text-slate-700 font-rajdhani;
+    @apply font-medium !text-4xl pt-4 text-slate-700 font-rajdhani;
   }
 
   h4 {
