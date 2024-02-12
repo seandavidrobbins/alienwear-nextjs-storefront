@@ -1,12 +1,14 @@
-# Next JS Project Portfolio
-
-I decided to rebuild my portfolio using React JS, Next JS, PHP, WordPress, GraphQL, and Tailwind CSS.
+# Next JS WooCommerce Storefront
 
 ## Description
 
-An in-depth paragraph about your project and overview of use.
+A dummy clothing brand/storefront named Alien Wear. This storefront was built using React JS, Next JS, PHP, WordPress, WooCommerce, GraphQL/WooGraphQL, and Tailwind CSS.
 
 ## Getting Started
+
+Consist of Front end and Backend
+
+In order to setup backend create a Local Flywheel instance and install the following plugins - GraphQL, WooGraphQL, and Headless Mode ([By Imran Sayed](https://github.com/imranhsayed/headless-cms))
 
 ### Dependencies
 
