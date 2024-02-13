@@ -1,6 +1,6 @@
-import ParentCategoriesBlock from "components/category/category-block/ParentCategoriesBlock";
-import GET_CATEGORIES_QUERY from "function/wordpress/queries/get-categories";
-import { initializeWpApollo } from "lib/wordpress/connector";
+import ParentCategoriesBlock from "components/organisms/category/category-block/ParentCategoriesBlock";
+import GET_CATEGORIES_QUERY from "functions/wordpress/queries/get-categories";
+import apolloClient from "lib/wordpress/connector";
 
 export default function Categories(props) {
   const { productCategories } = props;
@@ -17,8 +17,6 @@ export default function Categories(props) {
 }
 
 export async function getStaticProps() {
-  const apolloClient = initializeWpApollo();
-
   const { data } = await apolloClient.query({
     query: GET_CATEGORIES_QUERY,
   });

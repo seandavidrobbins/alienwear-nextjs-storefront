@@ -8,7 +8,7 @@ import {
 import { isEmpty } from "lodash";
 import GalleryCarousel from "components/organisms/single-product/gallery-carousel";
 import Price from "components/organisms/single-product/price";
-import { initializeWpApollo } from "lib/wordpress/connector";
+import apolloClient from "lib/wordpress/connector";
 
 export default function Product(props) {
   const { product } = props;
@@ -22,7 +22,7 @@ export default function Product(props) {
   }
 
   return (
-    <Layout>
+    <Layout postId={props?.databaseId} seo={{ ...props?.seo }}>
       {product ? (
         <div className="single-product container mx-auto my-32 px-4 xl:px-0">
           <div className="grid md:grid-cols-2 gap-4">
@@ -65,8 +65,6 @@ export default function Product(props) {
 }
 
 export async function getStaticProps(context) {
-  const apolloClient = initializeWpApollo();
-
   const {
     params: { slug },
   } = context;
@@ -85,8 +83,6 @@ export async function getStaticProps(context) {
 }
 
 export async function getStaticPaths() {
-  const apolloClient = initializeWpApollo();
-
   const { data } = await apolloClient.query({
     query: PRODUCT_SLUGS,
   });

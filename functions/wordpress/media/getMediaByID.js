@@ -1,5 +1,5 @@
-import { initializeWpApollo } from "lib/wordpress/connector";
 import queryMediaAttributes from "lib/wordpress/media/queryMediaAttributes";
+import apolloClient from "lib/wordpress/connector";
 
 /**
  * Retrieve media details by ID.
@@ -13,9 +13,6 @@ export default async function getMediaByID(id) {
   if (!id) {
     return {};
   }
-
-  // Get/create Apollo instance.
-  const apolloClient = initializeWpApollo();
 
   // Execute query.
   const media = await apolloClient

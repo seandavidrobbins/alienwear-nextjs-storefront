@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Logo from "components/atoms/Logo";
+import CartIcon from "../Cart/CartIcon";
 
 export default function Header({ items }) {
   return (
@@ -20,6 +21,7 @@ export default function Header({ items }) {
             </div>
           ))}
         </div>
+        <CartIcon />
       </header>
     </>
   );

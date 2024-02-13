@@ -84,7 +84,7 @@ const AddToCart = (props) => {
               "hover:bg-purple-600 text-white hover:text-white hover:border-purple-600":
                 !addToCartLoading,
             },
-            { "opacity-50 cursor-not-allowed": addToCartLoading }
+            { "opacity-50 cursor-not-allowed text-white": addToCartLoading }
           )}
         >
           {addToCartLoading ? "Adding to cart..." : "Add to cart"}
@@ -92,7 +92,7 @@ const AddToCart = (props) => {
       )}
       {showViewCart ? (
         <Link href="/cart">
-          <button className="px-3 py-1 rounded-sm text-sm border-solid border border-current inline-block hover:bg-purple-600 hover:text-white hover:border-purple-600">
+          <button className="px-3 py-1 rounded-sm text-sm border-solid border border-white text-white inline-block hover:bg-purple-600 hover:text-white hover:border-purple-600">
             View Cart
           </button>
         </Link>

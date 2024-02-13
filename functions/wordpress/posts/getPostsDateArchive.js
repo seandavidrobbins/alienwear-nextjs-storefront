@@ -1,7 +1,7 @@
 import getMenus from "functions/wordpress/menus/getMenus";
 import formatDefaultSeoData from "functions/wordpress/seo/formatDefaultSeoData";
 import formatManualSeoMeta from "functions/wordpress/seo/formatManualSeoMeta";
-import { initializeWpApollo } from "lib/wordpress/connector";
+import apolloClient from "lib/wordpress/connector";
 import queryPostsDateArchive from "lib/wordpress/posts/queryPostsDateArchive";
 import dayjs from "dayjs";
 
@@ -33,9 +33,6 @@ export default async function getPostsDateArchive(
   perPage = 10,
   exclude = []
 ) {
-  // Get/create Apollo instance.
-  const apolloClient = initializeWpApollo();
-
   // Set up return object.
   const response = {
     apolloClient,
