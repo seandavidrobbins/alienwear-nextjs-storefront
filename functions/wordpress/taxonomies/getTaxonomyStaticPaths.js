@@ -1,4 +1,4 @@
-import { initializeWpApollo } from "lib/wordpress/connector";
+import apolloClient from "lib/wordpress/connector";
 import { taxonomies } from "lib/wordpress/_config/taxonomies";
 import { gql } from "@apollo/client";
 import isValidTaxonomy from "./isValidTaxonomy";
@@ -30,9 +30,6 @@ export default async function getTaxonomyStaticPaths(taxonomy) {
       }
     }
   `;
-
-  // Get/create Apollo instance.
-  const apolloClient = initializeWpApollo();
 
   // Execute query.
   const terms = await apolloClient

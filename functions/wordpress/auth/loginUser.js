@@ -1,5 +1,5 @@
 import mutationLoginUser from "lib/wordpress/auth/mutationLoginUser";
-import { initializeWpApollo } from "lib/wordpress/connector";
+import apolloClient from "lib/wordpress/connector";
 
 /**
  * Log user into WP.
@@ -10,8 +10,6 @@ import { initializeWpApollo } from "lib/wordpress/connector";
  * @return {object}          User data or error object.
  */
 export default async function loginUser(username, password) {
-  const apolloClient = initializeWpApollo();
-
   return apolloClient
     .mutate({
       mutation: mutationLoginUser,

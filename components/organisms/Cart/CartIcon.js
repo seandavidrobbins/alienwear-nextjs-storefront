@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { AppContext } from "../context/AppContext";
+import { AppContext } from "components/common/context/AppContext";
 import Link from "next/link";
 
 const CartIcon = () => {
@@ -12,7 +12,7 @@ const CartIcon = () => {
   return (
     <Link
       href="/cart"
-      className="block mt-4 lg:inline-block lg:mt-0 text-black hover:text-black mr-10"
+      className="block mt-4 lg:inline-block lg:mt-0 text-black hover:text-black mx-4"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"

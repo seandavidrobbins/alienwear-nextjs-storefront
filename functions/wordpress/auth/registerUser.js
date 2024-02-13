@@ -1,5 +1,5 @@
 import mutationRegisterUser from "lib/wordpress/auth/mutationRegisterUser";
-import { initializeWpApollo } from "lib/wordpress/connector";
+import apolloClient from "lib/wordpress/connector";
 
 /**
  * Register a user in WP.
@@ -12,8 +12,6 @@ import { initializeWpApollo } from "lib/wordpress/connector";
  * @return {object}          User data or error object.
  */
 export default async function registerUser(email, password, username, data) {
-  const apolloClient = initializeWpApollo();
-
   const firstName = data?.firstName ?? "";
   const lastName = data?.lastName ?? "";
 

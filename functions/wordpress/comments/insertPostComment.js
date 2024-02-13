@@ -1,5 +1,5 @@
 import mutationInsertComment from "lib/wordpress/comments/mutationInsertComment";
-import { initializeWpApollo } from "lib/wordpress/connector";
+import apolloClient from "lib/wordpress/connector";
 
 /**
  * Add a comment to the given post. Follows established WordPress
@@ -32,9 +32,6 @@ export default async function insertPostComment(
   authorEmail,
   authorUrl
 ) {
-  // Get/create Apollo instance.
-  const apolloClient = initializeWpApollo();
-
   // Set up return object.
   const response = {
     apolloClient,

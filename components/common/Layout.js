@@ -4,7 +4,7 @@ import Meta from "components/common/Meta";
 import Header from "components/organisms/Header";
 import { useWordPressContext } from "components/common/WordPressProvider";
 import { NavMobile } from "components/organisms/MobileMenu/MobileMenu";
-
+import { AppProvider } from "components/common/context/AppContext";
 /**
  * Render the Layout component.
  *
@@ -19,6 +19,7 @@ export default function Layout({ children, seo }) {
 
   return (
     <>
+    <AppProvider>
       <Meta seo={seo} />
       <Header items={mainMenuItems} />
       <NavMobile items={mainMenuItems} />
@@ -26,6 +27,8 @@ export default function Layout({ children, seo }) {
         {children}
       </main>
       <Footer />
+      </AppProvider>
+
     </>
   );
 }

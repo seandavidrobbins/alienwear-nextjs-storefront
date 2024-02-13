@@ -3,7 +3,7 @@ import Product from "components/organisms/Products/Product";
 import ParentCategoriesBlock from "components/organisms/category/category-block/ParentCategoriesBlock";
 import PRODUCTS_AND_CATEGORIES_QUERY from "functions/wordpress/queries/product-and-categories";
 import HeroCarousel from "components/organisms/HeroCarousel/HeroCarousel";
-import { initializeWpApollo } from "lib/wordpress/connector";
+import apolloClient from "lib/wordpress/connector";
 import GET_MENUS_QUERY from "functions/wordpress/queries/get-menus";
 import { mapMainMenuItems } from "functions/wordpress/blocks/mapMainMenuItems";
 
@@ -49,8 +49,6 @@ export default function Home(props) {
 }
 
 export async function getStaticProps() {
-  const apolloClient = initializeWpApollo();
-
   const { data: productData } = await apolloClient.query({
     query: PRODUCTS_AND_CATEGORIES_QUERY,
   });

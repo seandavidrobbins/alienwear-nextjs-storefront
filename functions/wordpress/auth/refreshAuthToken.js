@@ -1,5 +1,5 @@
 import mutationRefreshAuthToken from "lib/wordpress/auth/mutationRefreshAuthToken";
-import { initializeWpApollo } from "lib/wordpress/connector";
+import apolloClient from "lib/wordpress/connector";
 
 /**
  * Get a new auth token using refresh token.
@@ -9,8 +9,6 @@ import { initializeWpApollo } from "lib/wordpress/connector";
  * @return {object}              User data or error object.
  */
 export default async function refreshAuthToken(refreshToken) {
-  const apolloClient = initializeWpApollo();
-
   return apolloClient
     .mutate({
       mutation: mutationRefreshAuthToken,

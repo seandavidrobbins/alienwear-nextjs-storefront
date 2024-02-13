@@ -1,8 +1,7 @@
-import { initializeWpApollo } from "lib/wordpress/connector";
 import { isEmpty, isArray } from "lodash";
 import { createCheckoutSession } from "next-stripe/client"; // @see https://github.com/ynnoj/next-stripe
 import { loadStripe } from "@stripe/stripe-js";
-
+import apolloClient from "lib/wordpress/connector";
 import GET_STATES from "../queries/get-states";
 import { createTheOrder, getCreateOrderData } from "./order";
 import { clearTheCart } from "./cart";
@@ -15,8 +14,6 @@ import { clearTheCart } from "./cart";
  * @returns {Promise<void>}
  */
 export const getStates = async (countryCode) => {
-  const apolloClient = initializeWpApollo();
-
   const { data } = await apolloClient.query({
     query: GET_STATES,
     variables: { countryCode: countryCode || "" },
