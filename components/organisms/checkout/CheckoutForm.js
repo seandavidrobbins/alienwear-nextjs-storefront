@@ -24,35 +24,35 @@ import CheckboxField from "./form-elements/CheckboxField";
 import CLEAR_CART_MUTATION from "functions/wordpress/mutations/clear-cart";
 
 // Use this for testing purposes, so you dont have to fill the checkout form over an over again.
-const defaultCustomerInfo = {
-  firstName: "Sean",
-  lastName: "Robbins",
-  address1: "123 Country Bumpkin Rd",
-  address2: "Suite 200",
-  city: "Midlothian",
-  country: "USA",
-  state: "Texas",
-  postcode: "76065",
-  email: "sean@seanrobbins.io",
-  phone: "4692856355",
-  company: "Alien Wear",
-  errors: null,
-};
-
 // const defaultCustomerInfo = {
-//   firstName: "",
-//   lastName: "",
-//   address1: "",
-//   address2: "",
-//   city: "",
-//   country: "",
-//   state: "",
-//   postcode: "",
-//   email: "",
-//   phone: "",
-//   company: "",
+//   firstName: "Sean",
+//   lastName: "Robbins",
+//   address1: "123 Country Bumpkin Rd",
+//   address2: "Suite 200",
+//   city: "Midlothian",
+//   country: "USA",
+//   state: "Texas",
+//   postcode: "76065",
+//   email: "sean@seanrobbins.io",
+//   phone: "4692856355",
+//   company: "Alien Wear",
 //   errors: null,
 // };
+
+const defaultCustomerInfo = {
+  firstName: "",
+  lastName: "",
+  address1: "",
+  address2: "",
+  city: "",
+  country: "",
+  state: "",
+  postcode: "",
+  email: "",
+  phone: "",
+  company: "",
+  errors: null,
+};
 
 const CheckoutForm = ({ countriesData }) => {
   const { billingCountries, shippingCountries } = countriesData || {};
