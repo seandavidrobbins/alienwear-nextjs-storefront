@@ -1,7 +1,7 @@
 import Layout from "components/common/Layout";
 import CheckoutForm from "components/organisms/checkout/CheckoutForm";
 import GET_COUNTRIES from "functions/wordpress/queries/get-countries";
-import apolloClient from "lib/wordpress/connector";
+import { initializeWpApollo } from "lib/wordpress/connector";
 
 const Checkout = ({ data, props }) => (
   <Layout postId={props?.databaseId} seo={{ ...props?.seo }}>
@@ -15,6 +15,7 @@ const Checkout = ({ data, props }) => (
 export default Checkout;
 
 export async function getStaticProps() {
+  const apolloClient = initializeWpApollo();
 
   const { data } = await apolloClient.query({
     query: GET_COUNTRIES,
