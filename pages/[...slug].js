@@ -1,8 +1,8 @@
-import apolloClient from "lib/wordpress/connector";
 import { gql } from "@apollo/client";
 import Blocks from "components/molecules/Blocks";
 import Layout from "components/common/Layout";
 import { getPageStaticProps } from "functions/wordpress/blocks/getPageStaticProps";
+import { initializeWpApollo } from "lib/wordpress/connector";
 
 const postType = "page";
 
@@ -19,6 +19,8 @@ export default function Page(props) {
 }
 
 export const getStaticPaths = async () => {
+  const apolloClient = initializeWpApollo();
+
   const { data } = await apolloClient.query({
     query: gql`
       query AllPagesQuery {

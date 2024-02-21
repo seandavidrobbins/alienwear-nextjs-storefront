@@ -1,11 +1,12 @@
 import { gql } from "@apollo/client";
 import { cleanAndTransformBlocks } from "./cleanAndTransformBlocks";
 import { mapMainMenuItems } from "./mapMainMenuItems";
-import apolloClient from "lib/wordpress/connector";
+import { initializeWpApollo } from "lib/wordpress/connector";
 
 export const getPageStaticProps = async (context) => {
   console.log("CONTEXT: ", context);
   const uri = context.params?.slug ? `/${context.params.slug.join("/")}/` : "/";
+  const apolloClient = initializeWpApollo();
 
   const { data } = await apolloClient.query({
     query: gql`

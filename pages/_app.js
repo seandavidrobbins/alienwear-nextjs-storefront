@@ -7,7 +7,8 @@ import { useState } from "react";
 import "tailwindcss/tailwind.css";
 import Custom500 from "./500";
 import WhatsAppChatbox from "components/atoms/WhatsAppChatbox";
-import apolloClient from "lib/wordpress/connector";
+import { SessionProvider as NextAuthProvider } from "next-auth/react";
+import { useWpApollo } from "lib/wordpress/connector";
 
 /**
  * Render the App component.
@@ -24,6 +25,7 @@ export default function App({ Component, pageProps }) {
    *
    * @see https://www.apollographql.com/docs/react/api/react/hooks/#the-apolloprovider-component
    */
+  const apolloClient = useWpApollo(pageProps);
 
   // Check for errors.
   const error = pageProps?.error;
@@ -36,6 +38,7 @@ export default function App({ Component, pageProps }) {
 
   const componentProps = {
     ...passThruProps,
+    session,
     post: {
       ...passThruProps?.post,
     },
@@ -47,19 +50,21 @@ export default function App({ Component, pageProps }) {
   });
 
   return (
-    <ApolloProvider client={apolloClient}>
-      <WordPressProvider value={wp}>
-        {error ? (
-          <Custom500 />
-        ) : (
-          <>
-            <WhatsAppChatbox />
-            <ExitPreview preview={preview} />
-            <Component {...componentProps} />
-          </>
-        )}
-      </WordPressProvider>
-    </ApolloProvider>
+    <NextAuthProvider session={session}>
+      <ApolloProvider client={apolloClient}>
+        <WordPressProvider value={wp}>
+          {error ? (
+            <Custom500 />
+          ) : (
+            <>
+              <WhatsAppChatbox />
+              <ExitPreview preview={preview} />
+              <Component {...componentProps} />
+            </>
+          )}
+        </WordPressProvider>
+      </ApolloProvider>
+    </NextAuthProvider>
   );
 }
 

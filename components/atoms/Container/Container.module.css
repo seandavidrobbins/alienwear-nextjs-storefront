@@ -1,4 +1,6 @@
 .containerW {
+  @apply px-12;
+
   &.paddingTop {
     @apply pt-12;
   }
